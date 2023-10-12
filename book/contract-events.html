@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contract Events - Mercury Developers Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="contract-events.html" class="active"><strong aria-hidden="true">1.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">2.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html"><strong aria-hidden="true">3.</strong> Create Account OPs</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mercury Developers Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="contract-events"><a class="header" href="#contract-events">Contract Events</a></h1>
+<p>Assuming that you have a subscription targeted to the events you are indexing,
+below are some instructions to get started making some more specific queries.</p>
+<h2 id="events-by-contract-id"><a class="header" href="#events-by-contract-id">Events by contract id</a></h2>
+<p>In this example, we're querying events (within the constraints of our subscription) for Testnet's
+native token contract.</p>
+<pre><code class="language-grapqhl">query MyQuery {
+  eventByContractId(
+    searchedContractId: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;
+  ) {
+    edges {
+      node {
+        contractId
+        data
+        ledger
+        ledgerTimestamp
+        topic2
+        topic1
+        topic4
+        topic3
+      }
+    }
+  }
+}
+</code></pre>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;eventByContractId&quot;: {
+      &quot;edges&quot;: [
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAAX14QA=&quot;,
+            &quot;ledger&quot;: 1976715,
+            &quot;ledgerTimestamp&quot;: 1697125133,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAlgxjlS3RNgkTERctfeiCrlUtOyt9BCzR4tRDDY9zmIE=&quot;,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAFkp3At7J1OWk8PiDhUMY2lWuneIYknC4OsmpJHxEYR7Q==&quot;
+          }
+        },
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAAABgnY=&quot;,
+            &quot;ledger&quot;: 1977257,
+            &quot;ledgerTimestamp&quot;: 1697127978,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAtXs1DVecP4w3jdgAVoD8DDcUkSryRVL3pjWQIbk1EZY=&quot;,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAAAAAAAPTdgJsV5ZyTSlS3RBk3s+JcreccjoCp3Vj7Z8jmU26k=&quot;
+          }
+        },
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAAAAA+g=&quot;,
+            &quot;ledger&quot;: 1977723,
+            &quot;ledgerTimestamp&quot;: 1697130446,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAJYf9NMqmC02G4br+I6LKzbfLvGV8QeiHblDN8VQtkyI=&quot;,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAAAAAAAf1sKj1rp5aRGdzj/pa4Yh0Jg83YJhhCmvWdqZoi4zks=&quot;
+          }
+        },
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAlQL5AA=&quot;,
+            &quot;ledger&quot;: 1977738,
+            &quot;ledgerTimestamp&quot;: 1697130525,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAJYf9NMqmC02G4br+I6LKzbfLvGV8QeiHblDN8VQtkyI=&quot;,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAAAAAAAf1sKj1rp5aRGdzj/pa4Yh0Jg83YJhhCmvWdqZoi4zks=&quot;
+          }
+        },
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAAX14QA=&quot;,
+            &quot;ledger&quot;: 1978025,
+            &quot;ledgerTimestamp&quot;: 1697132038,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAlgxjlS3RNgkTERctfeiCrlUtOyt9BCzR4tRDDY9zmIE=&quot;,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAAAAAAADrWdipCyvgYDlv6kRpdNchs5UGHB3Dsol3VHKAS2tYE=&quot;
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>Note that the data for events is stored as base64-encoded XDR.</p>
+</blockquote>
+<h2 id="events-by-topics"><a class="header" href="#events-by-topics">Events by topics</a></h2>
+<p>Mercury also allows you to query events given certain topics. For instance, let's index
+all transfer events in our subscription to the address <code>GAHLLHMKSCZL4BQDS37KIRUXJVZBWOKQMHA5YOZIS52UOKAEW22YDSXX</code>:</p>
+<pre><code class="language-graphql">query MyQuery {
+  eventByTopic(
+    t1: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;
+    t3: &quot;AAAAEgAAAAAAAAAADrWdipCyvgYDlv6kRpdNchs5UGHB3Dsol3VHKAS2tYE=&quot;
+  ) {
+    edges {
+      node {
+        contractId
+        data
+        ledger
+        ledgerTimestamp
+        topic1
+        topic2
+        topic3
+        topic4
+      }
+    }
+  }
+}
+</code></pre>
+<p>sample response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;eventByTopic&quot;: {
+      &quot;edges&quot;: [
+        {
+          &quot;node&quot;: {
+            &quot;contractId&quot;: &quot;CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC&quot;,
+            &quot;data&quot;: &quot;AAAACgAAAAAAAAAAAAAAAAX14QA=&quot;,
+            &quot;ledger&quot;: 1978025,
+            &quot;ledgerTimestamp&quot;: 1697132038,
+            &quot;topic1&quot;: &quot;AAAADwAAAAh0cmFuc2Zlcg==&quot;,
+            &quot;topic2&quot;: &quot;AAAAEgAAAAAAAAAAlgxjlS3RNgkTERctfeiCrlUtOyt9BCzR4tRDDY9zmIE=&quot;,
+            &quot;topic3&quot;: &quot;AAAAEgAAAAAAAAAADrWdipCyvgYDlv6kRpdNchs5UGHB3Dsol3VHKAS2tYE=&quot;,
+            &quot;topic4&quot;: &quot;AAAADgAAAAZuYXRpdmUAAA==&quot;
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>Note: this assumes that you already know the exact structure of the events you're querying.
+In this example we know that topic1 (t1) holds the event kind (Symbol(&quot;transfer&quot;) in our case)
+and that topic3 (t3) holds an Address object for the public key <code>GAHLLHMKSCZL4BQDS37KIRUXJVZBWOKQMHA5YOZIS52UOKAEW22YDSXX</code>.
+Building these xdrs must be done by the client and can be easily done with the existing
+stellar xdr tooling. </p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="payments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="payments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
