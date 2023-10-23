@@ -27,6 +27,6 @@ To create a full account subscription, refer to the following API:
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"publickey":"GDEFZKAH3SDHKR6OJYNORMTQY7QB44EJX5BL6WHVZBDQKOYO7BHEBC5C"}' -H "Authorization: Bearer $JWT_TOKEN" \                         
-  http://127.0.0.1:3030/account
+  BACKEND/account
 
 ```

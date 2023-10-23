@@ -2,6 +2,7 @@
 
 - [Get Started](./get-started.md)
 - [Request Access](./requesting-access.md)
+- [Current endpoints](./releases.md)
 
 # Subscriptions
 

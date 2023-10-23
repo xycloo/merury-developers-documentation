@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="get-started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="requesting-access.html"><strong aria-hidden="true">2.</strong> Request Access</a></li><li class="chapter-item expanded affix "><li class="part-title">Subscriptions</li><li class="chapter-item expanded "><a href="why-subscriptions.html"><strong aria-hidden="true">3.</strong> Subscriptions: What and Why</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract-event-subscription.html"><strong aria-hidden="true">3.1.</strong> Contract events</a></li><li class="chapter-item expanded "><a href="ledger-entries-subscription.html"><strong aria-hidden="true">3.2.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="ledger-entries-expiration-subscription.html"><strong aria-hidden="true">3.3.</strong> Ledger etries expiration</a></li><li class="chapter-item expanded "><a href="full-account-subscription.html"><strong aria-hidden="true">3.4.</strong> Full account subscriptions - Stellar Classic</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Queries</li><li class="chapter-item expanded "><a href="querying.html"><strong aria-hidden="true">4.</strong> Before querying</a></li><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">5.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="query-ledger-entries.html"><strong aria-hidden="true">6.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">7.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html"><strong aria-hidden="true">8.</strong> Create Account OPs</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="get-started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="requesting-access.html"><strong aria-hidden="true">2.</strong> Request Access</a></li><li class="chapter-item expanded "><a href="releases.html"><strong aria-hidden="true">3.</strong> Current endpoints</a></li><li class="chapter-item expanded affix "><li class="part-title">Subscriptions</li><li class="chapter-item expanded "><a href="why-subscriptions.html"><strong aria-hidden="true">4.</strong> Subscriptions: What and Why</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract-event-subscription.html"><strong aria-hidden="true">4.1.</strong> Contract events</a></li><li class="chapter-item expanded "><a href="ledger-entries-subscription.html"><strong aria-hidden="true">4.2.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="ledger-entries-expiration-subscription.html"><strong aria-hidden="true">4.3.</strong> Ledger etries expiration</a></li><li class="chapter-item expanded "><a href="full-account-subscription.html"><strong aria-hidden="true">4.4.</strong> Full account subscriptions - Stellar Classic</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Queries</li><li class="chapter-item expanded "><a href="querying.html"><strong aria-hidden="true">5.</strong> Before querying</a></li><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">6.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="query-ledger-entries.html"><strong aria-hidden="true">7.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">8.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html"><strong aria-hidden="true">9.</strong> Create Account OPs</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -242,6 +242,14 @@ of data you're actually occupying in our database. </li>
 <p>Mercury is a complex product and is still in development, so access is not open. However,
 we grant preview access to anyone who is interested. Just let us know in the <a href="">discord server</a>, or
 by reaching out on discord to <code>heytdep</code> or <code>itsfederico</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="current-endpoints"><a class="header" href="#current-endpoints">Current endpoints</a></h1>
+<div class="table-wrapper"><table><thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td>BACKEND</td><td>http://ec2-16-170-242-7.eu-north-1.compute.amazonaws.com:3030/</td></tr>
+<tr><td>GraphQl</td><td>http://ec2-16-170-242-7.eu-north-1.compute.amazonaws.com:5000/graphiql</td></tr>
+<tr><td>GraphiQl</td><td>http://ec2-16-170-242-7.eu-north-1.compute.amazonaws.com:5000/graphql</td></tr>
+</tbody></table>
+</div>
+<p>Mercury is still under development so the above endpoints (besides being still http) might change.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="subscriptions-what-and-why"><a class="header" href="#subscriptions-what-and-why">Subscriptions: What and Why</a></h1>
 <p>As you've read in the introduction, Mercury only stores the data you request. This translates to us adopting
 our so-called &quot;subscriptions-based&quot; model.</p>
@@ -305,7 +313,7 @@ data structures.</p>
 <pre><code class="language-curl"> curl --header &quot;Content-Type: application/json&quot; \
   --request POST \
   --data '{&quot;contract_id&quot;:&quot;CCVP5K2R2X4RWSJB7WZDDYVWHWDUUZWBWHLFPSZBIDOAWXH3LX6GG5PU&quot;, &quot;max_single_size&quot;: 200}' -H &quot;Authorization: Bearer YOUR_JWT_ACCESS_TOKEN&quot; \
-  http://INSTANCE:3030/event
+  BACKEND/event
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ledger-entries"><a class="header" href="#ledger-entries">Ledger entries</a></h1>
 <p>Mercury also allows to easily record state changes. This is especially useful in scenarios where
@@ -324,7 +332,7 @@ you are subscribing to the contract instance, to a presistent, or to temporary e
 <pre><code>curl --header &quot;Content-Type: application/json&quot; \
   --request POST \
   --data '{&quot;contract_id&quot;:&quot;contract id&quot;, &quot;key_xdr&quot;: &quot;AAAAFA==&quot;, &quot;max_single_size&quot;: 64000}' -H &quot;Authorization: Bearer $JWT_TOKEN&quot; \
-  http://127.0.0.1:3030/entry
+  BACKEND/entry
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ledger-etries-expiration"><a class="header" href="#ledger-etries-expiration">Ledger etries expiration</a></h1>
 <p>Soroban introduces the novel concept of state expiration, and it's essential that developers and users
@@ -359,7 +367,7 @@ that encompass the specified stellar account.</p>
 <pre><code>curl --header &quot;Content-Type: application/json&quot; \
   --request POST \
   --data '{&quot;publickey&quot;:&quot;GDEFZKAH3SDHKR6OJYNORMTQY7QB44EJX5BL6WHVZBDQKOYO7BHEBC5C&quot;}' -H &quot;Authorization: Bearer $JWT_TOKEN&quot; \                         
-  http://127.0.0.1:3030/account
+  BACKEND/account
 
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="before-querying"><a class="header" href="#before-querying">Before querying</a></h1>
@@ -853,22 +861,6 @@ to easily understand whether the asset sent is native or not, whether the source
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

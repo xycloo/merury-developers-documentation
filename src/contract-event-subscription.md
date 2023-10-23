@@ -25,5 +25,5 @@ This example subscribes to all events of xycLoans' XLM pool:
  curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"contract_id":"CCVP5K2R2X4RWSJB7WZDDYVWHWDUUZWBWHLFPSZBIDOAWXH3LX6GG5PU", "max_single_size": 200}' -H "Authorization: Bearer YOUR_JWT_ACCESS_TOKEN" \
-  http://INSTANCE:3030/event
+  BACKEND/event
 ```

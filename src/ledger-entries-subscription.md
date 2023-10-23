@@ -25,5 +25,5 @@ To subscribe to a contract's instance updates:
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"contract_id":"contract id", "key_xdr": "AAAAFA==", "max_single_size": 64000}' -H "Authorization: Bearer $JWT_TOKEN" \
-  http://127.0.0.1:3030/entry
+  BACKEND/entry
 ```
