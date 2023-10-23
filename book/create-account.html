@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">1.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">2.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html" class="active"><strong aria-hidden="true">3.</strong> Create Account OPs</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="get-started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="requesting-access.html"><strong aria-hidden="true">2.</strong> Request Access</a></li><li class="chapter-item expanded affix "><li class="part-title">Subscriptions</li><li class="chapter-item expanded "><a href="why-subscriptions.html"><strong aria-hidden="true">3.</strong> Subscriptions: What and Why</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract-event-subscription.html"><strong aria-hidden="true">3.1.</strong> Contract events</a></li><li class="chapter-item expanded "><a href="ledger-entries-subscription.html"><strong aria-hidden="true">3.2.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="ledger-entries-expiration-subscription.html"><strong aria-hidden="true">3.3.</strong> Ledger etries expiration</a></li><li class="chapter-item expanded "><a href="full-account-subscription.html"><strong aria-hidden="true">3.4.</strong> Full account subscriptions - Stellar Classic</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Queries</li><li class="chapter-item expanded "><a href="querying.html"><strong aria-hidden="true">4.</strong> Before querying</a></li><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">5.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="query-ledger-entries.html"><strong aria-hidden="true">6.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">7.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html" class="active"><strong aria-hidden="true">8.</strong> Create Account OPs</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -288,6 +288,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

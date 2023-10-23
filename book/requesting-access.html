@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Get Started - Mercury Developers Documentation</title>
+        <title>Request Access - Mercury Developers Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="get-started.html" class="active"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="requesting-access.html"><strong aria-hidden="true">2.</strong> Request Access</a></li><li class="chapter-item expanded affix "><li class="part-title">Subscriptions</li><li class="chapter-item expanded "><a href="why-subscriptions.html"><strong aria-hidden="true">3.</strong> Subscriptions: What and Why</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract-event-subscription.html"><strong aria-hidden="true">3.1.</strong> Contract events</a></li><li class="chapter-item expanded "><a href="ledger-entries-subscription.html"><strong aria-hidden="true">3.2.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="ledger-entries-expiration-subscription.html"><strong aria-hidden="true">3.3.</strong> Ledger etries expiration</a></li><li class="chapter-item expanded "><a href="full-account-subscription.html"><strong aria-hidden="true">3.4.</strong> Full account subscriptions - Stellar Classic</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Queries</li><li class="chapter-item expanded "><a href="querying.html"><strong aria-hidden="true">4.</strong> Before querying</a></li><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">5.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="query-ledger-entries.html"><strong aria-hidden="true">6.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">7.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html"><strong aria-hidden="true">8.</strong> Create Account OPs</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="get-started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="requesting-access.html" class="active"><strong aria-hidden="true">2.</strong> Request Access</a></li><li class="chapter-item expanded affix "><li class="part-title">Subscriptions</li><li class="chapter-item expanded "><a href="why-subscriptions.html"><strong aria-hidden="true">3.</strong> Subscriptions: What and Why</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract-event-subscription.html"><strong aria-hidden="true">3.1.</strong> Contract events</a></li><li class="chapter-item expanded "><a href="ledger-entries-subscription.html"><strong aria-hidden="true">3.2.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="ledger-entries-expiration-subscription.html"><strong aria-hidden="true">3.3.</strong> Ledger etries expiration</a></li><li class="chapter-item expanded "><a href="full-account-subscription.html"><strong aria-hidden="true">3.4.</strong> Full account subscriptions - Stellar Classic</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Queries</li><li class="chapter-item expanded "><a href="querying.html"><strong aria-hidden="true">4.</strong> Before querying</a></li><li class="chapter-item expanded "><a href="contract-events.html"><strong aria-hidden="true">5.</strong> Contract Events</a></li><li class="chapter-item expanded "><a href="query-ledger-entries.html"><strong aria-hidden="true">6.</strong> Ledger entries</a></li><li class="chapter-item expanded "><a href="payments.html"><strong aria-hidden="true">7.</strong> Payments</a></li><li class="chapter-item expanded "><a href="create-account.html"><strong aria-hidden="true">8.</strong> Create Account OPs</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,108 +142,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="get-started"><a class="header" href="#get-started">Get Started</a></h1>
-<p>Welcome to Mercury's documentation for developers. This rust book is meant to give you a complete understanding of
-Mercury's features and what you need in getting started using Mercury's preview releases as the indexer for your
-services, apps, and protocols; so if some points need clarification don't hesitate to let us know by opening an issue
-on Github.</p>
-<br/>
-<h1 id="mercury-a-managed-indexing-service"><a class="header" href="#mercury-a-managed-indexing-service">Mercury: a Managed Indexing Service</a></h1>
-<p>Let's start off by saying that Mercury is a managed indexing service, which means that we control on our servers
-everything ranging from ingestion to the GraphQL API. </p>
-<p>This design choice is likely what will impact more your decision in choosing an indexer, here are some of the
-pros and cons of using a managed indexer service.</p>
-<blockquote>
-<p>Note: these charateristics aren't about Mercury specifically, they are about the advantages and disadvantages
-of relying on a managed indexing service.</p>
-</blockquote>
-<h4 id="pros-of-a-managed-service"><a class="header" href="#pros-of-a-managed-service">Pros of a managed service.</a></h4>
-<ul>
-<li>
-<p>No need for a setup and development of any kind.</p>
-<ul>
-<li>this also includes not needing to worry about DB structure and its efficiency</li>
-</ul>
-</li>
-<li>
-<p>No need of performing maintenance. There is no workload that is streamlined to the user, so also no workload
-in having to stay up to date with the code, dependencies, etc.</p>
-</li>
-<li>
-<p>Cheaper. In most circumnstances, using a managed indexer is cheaper than running and maintaining your own instance.
-Also, you might want to account for development costs, which are non-existing when relying on a managed service.</p>
-</li>
-<li>
-<p>Security. While it's true that you don't have control over the security of the product you're relying to,
-our team does. We are committed to building a secure product and also have a solid background in security research.</p>
-</li>
-<li>
-<p>Smoother experience. Generally, managed services can offer a smoother experience due to the nature of their design,
-including also more specific support.</p>
-</li>
-</ul>
-<h4 id="pros-of-a-self-hosted-service"><a class="header" href="#pros-of-a-self-hosted-service">Pros of a self-hosted service.</a></h4>
-<ul>
-<li>
-<p>Vendor lock-in. When you're running your own indexer you don't have much constraints around which server you use and
-you don't have to worry about lack of availability on the service's end. For example, if you want to migrate to another
-service, self-hosted services offer a much smoother experience, and in some managed service that is not even an option.</p>
-</li>
-<li>
-<p>Customization. As you're actually building the service yourself, you can give it the shape you want. In some situations
-where very high customization degrees are needed, relying on a self-hosted service reduces a lot of workload for the
-client.</p>
-</li>
-</ul>
-<br/>
-<p>You can understand that the choicce depends on you use case and needs. If you'd like to get help in understanding if
-Mercury fits your requirements you can ask on our team's public discord server.</p>
-<p>Anyways, for Mercury we are committed to lowering the gaps between a self-hosted solution's pros and a managed's cons. 
-In fact:</p>
-<ul>
-<li>
-<p>we tackle customizability by developing and integrating in Mercury the Zephyr VM, xyclooLab's WebAssembly VM for 
-communication between the Stellar Network's data and the guest environemnt. Users that wish to have full customizability
-(and also additional perks) can write their logic in any WASM-compatible language and deploy it to Mercury's cloud
-execution environment. Read more about Zephyr in our blog <a href="https://blog.xycloo.com/blog/introducing-zephyr">here - introduction</a> 
-and <a href="https://blog.xycloo.com/blog/zephyr-pre-alpha-preview">here - an experimental Zephyr program</a>.</p>
-<ul>
-<li>also, we generally don't envision Mercury itself not to cover most use cases, even those who need some customizability.
-Our extensive knowledge of Stellar + Soroban structures, dynamics, and logics are helping us to craft an implementation
-that will fit most use cases for developers. This is also why we have developed the Zephyr Virtual Machine with also other features
-in mind.</li>
-</ul>
-</li>
-<li>
-<p>there isn't really a way of tackling vendor lock and ensuring availability over time, but:</p>
-<ul>
-<li>we're committed with working with users that wish to migrate in order to provide
-the cleanest migration experience as possible. In our mind we have DB write channels, but
-this is not going to be prioritized and included in the first releases. </li>
-<li>while it is not possible for us to, at least currently, guarantee consistent availability over time, our team is committed
-to do so. We have been working on Stellar for more than two years and have strong ties with the community, of which we
-are also a part.</li>
-</ul>
-</li>
-</ul>
-<br/>
-<h2 id="pricing"><a class="header" href="#pricing">Pricing</a></h2>
-<p>While we don't have yet any hard numbers on pricing, we have defined a very solid model that involves
-down-payments and reimbursements. The main advantages of our cost model are:</p>
-<ul>
-<li>very cost efficient: you only pay for the data you request to store, and for the amount
-of data you're actually occupying in our database. </li>
-<li>efficiency in managing payments: you know exactly how much you'll spend at most.</li>
-<li>payments are performed through stellar payments.</li>
-</ul>
-<p>If you're interested in learning more, we suggest checking out our <a href="https://docs.google.com/document/d/16rgq5mopskhU4CFE69VAi--IsCxNDeNjBlb-buidl08">SCF presentation document</a>.</p>
+                        <h1 id="request-access"><a class="header" href="#request-access">Request Access</a></h1>
+<p>Mercury is a complex product and is still in development, so access is not open. However,
+we grant preview access to anyone who is interested. Just let us know in the <a href="">discord server</a>, or
+by reaching out on discord to <code>heytdep</code> or <code>itsfederico</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="get-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next" href="requesting-access.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="why-subscriptions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -253,8 +165,11 @@ of data you're actually occupying in our database. </li>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="get-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next" href="requesting-access.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="why-subscriptions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
