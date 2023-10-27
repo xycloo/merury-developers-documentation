@@ -14,7 +14,7 @@ To create a new subscription to a ledger entry, refer to the following API:
 **body**:
 
 ```json
-{"contract_id": "CONTRACT_ID", "key_xdr": "entry key as base64 xdr", "max_entry_size": "MAX_ENTRY_BYTE_SIZE as integer"}
+{"contract_id": "CONTRACT_ID", "key_xdr": "entry key as base64 xdr", "max_single_size": "MAX_ENTRY_BYTE_SIZE as integer"}
 ```
 
 ### Example
