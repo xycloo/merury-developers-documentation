@@ -14,7 +14,7 @@ To create a new subscription to a ledger entry, refer to the following API:
 **body**:
 
 ```json
-{"contract_id": "CONTRACT_ID", "key_xdr": "entry key as base64 xdr", "max_single_size": "MAX_ENTRY_BYTE_SIZE as integer"}
+{"contract_id": "CONTRACT_ID", "key_xdr": "entry key as base64 xdr", "max_single_size": "MAX_ENTRY_BYTE_SIZE as integer", "durability": "temporary/persistent"}
 ```
 
 ### Example
@@ -24,6 +24,6 @@ To subscribe to a contract's instance updates:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"contract_id":"contract id", "key_xdr": "AAAAFA==", "max_single_size": 64000}' -H "Authorization: Bearer $JWT_TOKEN" \
+  --data '{"contract_id":"contract id", "key_xdr": "AAAAFA==", "max_single_size": 64000, "durability": "persistent"}' -H "Authorization: Bearer $JWT_TOKEN" \
   BACKEND/entry
 ```

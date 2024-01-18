@@ -18,7 +18,7 @@ To create a full account subscription, refer to the following API:
 **body**:
 
 ```json
-{"publickey": "public key of the account (strkey)"}
+{"publickey": "public key of the account (strkey)", "hydrate": bool}
 ```
 
 ## Example
